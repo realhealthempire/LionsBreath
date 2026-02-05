@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIONSBREATH - Real Health Empire</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle at top right, #0d0d0a 0%, #000000 100%);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .glass {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    }
+
+    /* High-Contrast Metallic Text Gradients */
+    .text-gold {
+      background: linear-gradient(to bottom, #BF953F 0%, #FCF6BA 20%, #B38728 45%, #FBF5B7 70%, #AA771C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 2px rgba(184, 134, 11, 0.3));
+    }
+    .text-blue-metallic {
+      background: linear-gradient(to bottom, #93C5FD 0%, #60A5FA 25%, #3B82F6 50%, #2563EB 75%, #1E40AF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-emerald-metallic {
+      background: linear-gradient(to bottom, #A7F3D0 0%, #6EE7B7 25%, #10B981 50%, #059669 75%, #064E3B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-purple-metallic {
+      background: linear-gradient(to bottom, #DDD6FE 0%, #A78BFA 25%, #8B5CF6 50%, #7C3AED 75%, #4C1D95 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Polished Metallic Surface Gradients */
+    .bg-gold-metallic {
+      background: linear-gradient(145deg, #BF953F 0%, #FCF6BA 30%, #B38728 50%, #FBF5B7 70%, #AA771C 100%);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 -1px 1px rgba(0,0,0,0.4);
+    }
+    .bg-blue-metallic {
+      background: linear-gradient(145deg, #93C5FD 0%, #60A5FA 30%, #3B82F6 50%, #2563EB 70%, #1E40AF 100%);
+      box-shadow: 0 8px 32px rgba(30, 64, 175, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(0,0,0,0.4);
+    }
+    .bg-emerald-metallic {
+      background: linear-gradient(145deg, #A7F3D0 0%, #6EE7B7 30%, #10B981 50%, #059669 70%, #064E3B 100%);
+      box-shadow: 0 8px 32px rgba(6, 78, 59, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(0,0,0,0.4);
+    }
+    .bg-purple-metallic {
+      background: linear-gradient(145deg, #DDD6FE 0%, #A78BFA 30%, #8B5CF6 50%, #7C3AED 70%, #4C1D95 100%);
+      box-shadow: 0 8px 32px rgba(76, 29, 149, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(0,0,0,0.4);
+    }
+
+    /* PS3 Silk Ribbon Flow Animations */
+    @keyframes ribbon-flutter-1 {
+      0%, 100% { transform: scale(1) translate(0, 0) rotate(0deg) skew(0deg); opacity: 0.5; }
+      25% { transform: scale(1.06) translate(2%, -1%) rotate(2deg) skew(2deg); opacity: 0.9; }
+      50% { transform: scale(0.96) translate(-2%, 2%) rotate(-2deg) skew(-2deg); opacity: 0.6; }
+      75% { transform: scale(1.04) translate(1%, 1%) rotate(1deg) skew(1deg); opacity: 0.8; }
+    }
+
+    @keyframes ribbon-flutter-2 {
+      0%, 100% { transform: scale(1.08) translate(0, 0) rotate(0deg); opacity: 0.4; }
+      33% { transform: scale(0.95) translate(-3%, 3%) rotate(-3deg); opacity: 0.8; }
+      66% { transform: scale(1.12) translate(2%, -2%) rotate(2deg); opacity: 0.5; }
+    }
+
+    .spirit-particle {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      filter: blur(1px);
+      pointer-events: none;
+      animation: spirit-drift var(--p-duration) ease-in-out infinite;
+      opacity: 0;
+    }
+
+    /* Octagonal Glow Styles */
+    .glow-ps3-gold { filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.3)); }
+    .glow-ps3-purple { filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.3)); }
+    .glow-ps3-emerald { filter: drop-shadow(0 0 40px rgba(52, 211, 153, 0.3)); }
+    .glow-ps3-blue { filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.3)); }
+
+    .silk-path {
+      fill: none;
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      filter: blur(2px);
+      transition: stroke 1s ease-in-out, stroke-opacity 0.8s ease-in-out;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .metallic-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .metallic-shine::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 45%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 55%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(25deg);
+      animation: shine 6s infinite;
+      pointer-events: none;
+    }
+    @keyframes shine {
+      0% { transform: translateX(-100%) rotate(25deg); }
+      15% { transform: translateX(100%) rotate(25deg); }
+      100% { transform: translateX(100%) rotate(25deg); }
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "recharts": "https://esm.sh/recharts@^3.7.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
